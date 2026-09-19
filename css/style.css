@@ -255,6 +255,29 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
   font-size: 44px;
   text-shadow: 0 2px 14px rgba(0,0,0,.35);
 }
+/* The book page uses the cover's own mountain artwork rather than a photo.
+   It is light art on white, so the heading stays teal and the dark scrim the
+   photo banners rely on is suppressed. */
+.page-banner--book {
+  background-color: rgba(106, 163, 216, .08);
+  background-image: url(../images/book-banner.png);
+  background-position: right bottom;
+  background-size: auto 80%;
+  border-bottom: 1px solid var(--rule);
+  min-height: 250px;
+}
+.page-banner--book::before { background: none; }
+.page-banner--book h1 {
+  color: var(--teal);
+  text-shadow: none;
+}
+.page-banner--book h1 span {
+  display: block;
+  margin-top: .25em;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 19px;
+}
 .page-banner--nautilus { background-image: url(../images/Snow-Nautilis-_0005-copy.jpeg); }
 .page-banner--allium   { background-image: url(../images/Laurie-Klein-Allium-and-Hands-16x16-2014.jpeg); }
 .page-banner--hands    { background-image: url(../images/shutterstock_762804607-scaled.jpg); }
@@ -755,6 +778,15 @@ audio { width: 100%; max-width: 560px; }
   h2 { font-size: 26px; }
   h3 { font-size: 21px; }
   .page-banner h1, .page-banner h2 { font-size: 34px; }
+  /* Narrow: the mountains would sit under the heading, so drop them below it. */
+  .page-banner--book {
+    align-items: flex-start;
+    min-height: 300px;
+    padding-top: 34px;
+    padding-bottom: 130px;
+    background-size: auto 42%;
+    background-position: center bottom;
+  }
   .cta-card { padding: 34px 26px; border-radius: 30px; }
   .panel { padding: 28px 24px; }
 }
