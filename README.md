@@ -75,6 +75,25 @@ a reload, so scroll position survives. `live-server` injects its reload client i
 response as it serves — nothing is written to disk and nothing is added to these files, so
 the site stays JavaScript-free and there is nothing to strip out before deploying.
 
+## Caching
+
+GitHub Pages serves everything with `cache-control: max-age=600` and gives you no
+way to set headers. Within that ten-minute window a browser can pair freshly
+fetched HTML with a stylesheet it cached earlier, which renders the site wrong
+until a hard reload.
+
+To avoid that, the stylesheet URL carries a content hash — `css/style.css?v=3c8e93e4`.
+A changed stylesheet is a different URL, so it can never be served from a stale
+cache entry. After editing `css/style.css`, run:
+
+```sh
+./bin/cachebust.sh
+```
+
+It rewrites the hash in all seven pages. Forgetting to run it is not fatal —
+caches still expire after ten minutes — but visitors may see a stale layout
+until then.
+
 ## Editing
 
 `css/style.css` starts with the palette as custom properties:
