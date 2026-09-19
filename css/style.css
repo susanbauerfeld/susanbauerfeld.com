@@ -189,11 +189,29 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
 
 .hero {
   position: relative;
-  min-height: 620px;
+  overflow: hidden;
+  min-height: 640px;
   display: flex;
   align-items: center;
   background-color: rgba(106, 163, 216, .08);
   border-bottom: 1px solid var(--rule);
+}
+/* The book's own mountain artwork as a faint watermark along the bottom.
+   The image is a mirrored pair, which tiles seamlessly, so it repeats across
+   any viewport width at a fixed scale. */
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px;
+  background-image: url(../images/hero-mountains.png);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: left bottom;
+  opacity: .13;
+  pointer-events: none;
 }
 .hero__inner {
   position: relative;
@@ -820,6 +838,8 @@ audio { width: 100%; max-width: 560px; }
   .site-footer__logo img { margin: 0; }
   .hero { min-height: 0; }
   .hero__inner { grid-template-columns: 1fr; gap: 40px; }
+  /* Stacked: one smaller, fainter copy so it stays behind the book. */
+  .hero::before { height: 170px; opacity: .12; }
   .hero__book { justify-self: center; max-width: 220px; }
   .hero__title { font-size: 40px; }
   .hero__eyebrow { font-size: 26px; }
