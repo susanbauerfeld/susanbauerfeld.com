@@ -231,11 +231,13 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
 
 .hero__book { margin: 0; }
 .book3d {
+  --tilt: 0deg;
   display: block;
   position: relative;
-  transform: rotate(-1.5deg);
+  transform: rotate(var(--tilt));
   transition: transform .25s ease, filter .25s ease;
 }
+.hero__book .book3d { --tilt: -1.5deg; }
 .book3d img {
   display: block;
   width: 100%;
@@ -266,7 +268,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
     rgba(255,255,255,0) 100%);
   pointer-events: none;
 }
-.book3d:hover, .book3d:focus-visible { transform: rotate(-1.5deg) translateY(-6px); }
+.book3d:hover, .book3d:focus-visible { transform: rotate(var(--tilt)) translateY(-6px); }
 .book3d:hover img, .book3d:focus-visible img {
   box-shadow: 0 26px 52px rgba(0, 0, 0, .32), 0 3px 8px rgba(0, 0, 0, .2);
 }
@@ -614,10 +616,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
   text-decoration: none;
 }
 
-.book-cover a { display: block; transition: transform .2s ease, box-shadow .2s ease; }
-.book-cover a:hover, .book-cover a:focus-visible { transform: translateY(-4px); }
-.book-cover a:hover img, .book-cover a:focus-visible img { box-shadow: 0 16px 50px rgba(0,0,0,.26); }
-.book-cover img { box-shadow: 0 10px 40px rgba(0,0,0,.18); }
+
 
 .book-events-link {
   margin-top: 1.8em;
