@@ -13,6 +13,7 @@ folder on any static host (GitHub Pages, Netlify, S3, Cloudflare Pages).
 | --- | --- |
 | `index.html` | `/` |
 | `about.html` | `/about/` |
+| `media-appearances.html` | — (new; not on the original) |
 | `base-camp-parenting-book.html` | `/base-camp-parenting-book/` |
 | `workshops-and-groups.html` | `/workshops-and-groups/` |
 | `booking-requests.html` | `/booking-requests/` |
@@ -90,7 +91,7 @@ cache entry. After editing `css/style.css`, run:
 ./bin/cachebust.sh
 ```
 
-It rewrites the hash in all seven pages. Forgetting to run it is not fatal —
+It rewrites the hash in every page. Forgetting to run it is not fatal —
 caches still expire after ten minutes — but visitors may see a stale layout
 until then.
 
