@@ -633,20 +633,6 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
   font-weight: 500;
 }
 .appearance:hover .appearance__action { text-decoration: underline; }
-
-/* A video clip under its own heading, below the cards. Clips are vertical
-   (phone-shaped), so the column is narrow. */
-.clip { max-width: 400px; margin: 72px auto 0; text-align: center; }
-.clip video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 9 / 16;
-  background: var(--bg);
-  border-radius: 8px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, .06);
-}
-.clip__source { margin: 12px 0 0; font-size: 15px; }
 @media (prefers-reduced-motion: reduce) {
   .appearance, .appearance__play { transition: none; }
   .appearance:hover, .appearance:hover .appearance__play { transform: none; }
