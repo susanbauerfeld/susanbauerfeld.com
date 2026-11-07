@@ -633,6 +633,18 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
   font-weight: 500;
 }
 .appearance:hover .appearance__action { text-decoration: underline; }
+/* Radio clips, each a caption over a player, below the cards. */
+.audio-clips { display: flex; flex-direction: column; gap: 20px; max-width: 680px; margin: 64px auto 0; }
+.audio-clip {
+  margin: 0;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .06);
+}
+.audio-clip figcaption { margin: 0 0 12px; font-family: var(--font-head); font-weight: 500; line-height: 1.4; }
+.audio-clip audio { display: block; max-width: none; }
 @media (prefers-reduced-motion: reduce) {
   .appearance, .appearance__play { transition: none; }
   .appearance:hover, .appearance:hover .appearance__play { transform: none; }
